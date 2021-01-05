@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Student {
   private String name;
@@ -68,9 +69,23 @@ public class Student {
     System.out.println(s);
   }
 
+  public boolean isSmart() {
+    return this.grade > 70;
+  }
+
   public static Criterion getSmartCriterion() {
     return (Student s) -> {
       return s.getGrade() > 70;
     };
+  }
+
+  // threshold must be final, or "effectively" final
+  public static Predicate<Student> getSmartPredicate(/*final */int threshold) {
+    // "closure"
+    // take a copy of threshold and embedd in the "object" that "is" the lambda
+    // a copy is valid IF and ONLY IF, neither ever change
+//    threshold++;
+    return s -> s.getGrade() > threshold; // Computed a behavior... where the result (behavior)
+    // depends on an argument to this enclosing "behavior factory" :)
   }
 }
