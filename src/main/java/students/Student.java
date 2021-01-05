@@ -67,4 +67,10 @@ public class Student {
     s = s.withAdditionalCourses("Chemistry", "Astrophysics");
     System.out.println(s);
   }
+
+  public static Criterion getSmartCriterion() {
+    return (Student s) -> {
+      return s.getGrade() > 70;
+    };
+  }
 }
