@@ -88,4 +88,8 @@ public class Student {
     return s -> s.getGrade() > threshold; // Computed a behavior... where the result (behavior)
     // depends on an argument to this enclosing "behavior factory" :)
   }
+
+  public static Predicate<Student> getEnthusiastic(int threshold) {
+    return s -> s.getCourses().size() > threshold;
+  }
 }
