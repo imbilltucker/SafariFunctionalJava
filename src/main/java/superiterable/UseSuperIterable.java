@@ -39,7 +39,7 @@ public class UseSuperIterable {
         .peek(s -> System.out.println("peek after filter: " + s))
         .flatMap(s -> new SuperIterable<>(s.getCourses()))
         .map(c -> "Someone is studying " + c)
-//        .forEach(System.out::println)
+        .forEach(System.out::println)
     ;
 
     System.out.println("-------------------------");
@@ -49,7 +49,7 @@ public class UseSuperIterable {
         .peek(s -> System.out.println("peek after filter: " + s))
         .flatMap(s -> s.getCourses().stream())
         .map(c -> "Someone is studying " + c)
-//        .forEach(System.out::println)
+        .forEach(System.out::println)
     ;
 
   }
