@@ -38,7 +38,7 @@ class Either<F, S> {
 interface FunctionException<A, R> {
   R apply(A e) throws Throwable;
 
-  static <A, R>Function<A, Either<String, R>> wrap(FunctionException<A, R> op) {
+  static <A, R> Function<A, Either<String, R>> wrap(FunctionException<A, R> op) {
     return a -> {
       try {
         return new Either<>(null, op.apply(a));

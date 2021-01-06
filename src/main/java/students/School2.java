@@ -19,7 +19,7 @@ public class School2 {
     };
   }
 
-  public static <E> List<E> filter(List<E> ls, Predicate<E> crit) {
+  public static <E> List<E> filter(Iterable<E> ls, Predicate<E> crit) {
     List<E> res = new ArrayList<>();
     for (E s : ls) {
       if (crit.test(s)) {
@@ -29,7 +29,7 @@ public class School2 {
     return res;
   }
 
-  public static <E> void show(List<E> ls) {
+  public static <E> void show(Iterable<E> ls) {
     for (E s : ls) {
       System.out.println("> " + s);
     }
